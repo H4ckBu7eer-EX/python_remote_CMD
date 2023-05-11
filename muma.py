@@ -1,8 +1,15 @@
 import subprocess
 import socket
 
+
+with open('cfg', 'r') as f:
+    sip = f.readline().strip()
+    sport = int(f.readline().strip())
+
+print(sip,sport)
+
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('localhost', 5678))
+client_socket.connect((sip, sport))
 
 while True:
     recv_data = client_socket.recv(20480)
